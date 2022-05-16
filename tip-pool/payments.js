@@ -12,7 +12,7 @@ paymentForm.addEventListener('submit', submitPaymentInfo);
 
 // Add a curPayment object to allPayments, update html and reset input values
 function submitPaymentInfo(evt) {
-  if (evt) evt.preventDefault(); // when running tests there is no event
+  if(evt)evt.preventDefault(); // when running tests there is no event
 
   let curPayment = createCurPayment();
 
@@ -55,7 +55,7 @@ function appendPaymentTable(curPayment) {
   appendTd(newTr, '$' + curPayment.billAmt);
   appendTd(newTr, '$' + curPayment.tipAmt);
   appendTd(newTr, curPayment.tipPercent + '%');
-
+  appendDeleteBtn(newTr);
   paymentTbody.append(newTr);
 }
 
@@ -75,4 +75,3 @@ function updateSummary() {
   summaryTds[1].innerHTML = '$' + sumPaymentTotal('tipAmt');
   summaryTds[2].innerHTML =  Math.round(tipPercentAvg) + '%';
 }
-

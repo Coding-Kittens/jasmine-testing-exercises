@@ -5,7 +5,6 @@ function sumPaymentTotal(type) {
 
   for (let key in allPayments) {
     let payment = allPayments[key];
-
     total += Number(payment[type]);
   }
 
@@ -23,4 +22,17 @@ function appendTd(tr, value) {
   newTd.innerText = value;
 
   tr.append(newTd);
+}
+
+
+function appendDeleteBtn(tr) {
+let newTd = document.createElement('td');
+
+newTd.value = "X";
+newTd.innerText = "X";
+newTd.addEventListener("click", function(event){
+  event.target.parentElement.remove();
+});
+tr.append(newTd);
+
 }
